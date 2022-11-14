@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Tasks</h1>
+
+<div class="row">
+  {% for task in tasks %}
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ task.title }}</h5>
+        <p class="card-text">{{ task.description }}.</p>
+        <p class="card-text">done: {{ task.done }}.</p>
+        <p class="card-text">username : {{ task.user.username}}.</p>
+        <a href="{% url 'task_detail' task.id %}" class="btn btn-primary"
+          >more...</a
+        >
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
